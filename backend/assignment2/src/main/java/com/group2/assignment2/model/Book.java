@@ -15,7 +15,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; //Notice "Long" and not "long"
+    private Long id; //did not work with "long" because it cant be null
 
     @Column(nullable = false)
     private String title;
