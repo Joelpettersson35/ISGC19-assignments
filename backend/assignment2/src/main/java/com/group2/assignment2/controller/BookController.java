@@ -19,6 +19,7 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
+@CrossOrigin(origins = "http://localhost:5174")
 public class BookController {
 
     @Autowired //an annotation for automatic dependency injection
