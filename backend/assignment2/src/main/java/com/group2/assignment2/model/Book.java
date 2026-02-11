@@ -20,6 +20,7 @@ public class Book {
     @Column(nullable = false)
     private String title;
 
+    @Column
     private String description;
 
     @Column

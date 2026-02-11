@@ -1,4 +1,4 @@
-package com.group2.assignment2.validation;
+package com.group2.assignment2.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
