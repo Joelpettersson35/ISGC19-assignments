@@ -13,5 +13,4 @@ public class Assignment2Application {
 	}{
 		log.info("hello world");
 	}
-
 }

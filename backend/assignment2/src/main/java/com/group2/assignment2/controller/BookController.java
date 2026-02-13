@@ -34,13 +34,16 @@ public class BookController {
             if (book.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-
             return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
     //cheap implementation... should probably filter in database query
     @GetMapping("/books/title")
     public ResponseEntity<?> getBooksByTitle(@RequestParam String title){
+        if (title.isEmpty()){
+            log.error("no title");
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         Iterable<Book> books = bookRep.findAll();
         ArrayList<Book> filtered = new ArrayList<>();
 

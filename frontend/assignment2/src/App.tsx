@@ -1,12 +1,12 @@
 import "./index.css";
 import Hero from "./components/Hero";
-import Main from "./components/Main";
+import MainSection from "./components/MainSection";
 
 function App() {
   return (
     <>
       <Hero></Hero>
-      <Main></Main>
+      <MainSection></MainSection>
     </>
   );
 }
