@@ -29,7 +29,7 @@ function FilterSection({ onGetBooks }: Props) {
   }
 
   return (
-    <div className="flex flex-wrap w-full justify-center mt-4">
+    <div className="flex flex-wrap w-full justify-center">
       <h1 className="w-full text-4xl text-center">Filter</h1>
       <div className="flex w-full justify-center">
         {filterOptions.map((item, index) => (

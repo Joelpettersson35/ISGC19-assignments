@@ -3,3 +3,13 @@
     path: string;
     value: string
   }
+
+export interface Book {
+    id: number;
+    title: string;
+    description: string;
+    published_year: string;
+    author: string;
+    category: string;
+  }
+
