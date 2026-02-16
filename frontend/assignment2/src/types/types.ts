@@ -13,3 +13,8 @@ export interface Book {
     category: string;
   }
 
+export interface ErrorMsg{
+    status: number
+    message: string
+}
+

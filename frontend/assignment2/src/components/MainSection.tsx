@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import Menu from "./Menu";
 import FilterSection from "./FilterSection";
 import Form from "./Form";
 import DeleteForm from "./DeleteForm";
 import type { Params } from "../types/types";
 import type { Book } from "../types/types";
+import type { ErrorMsg } from "../types/types";
 
 function MainSection() {
   const [books, setBooks] = useState<Book[]>([]);
   const [result, setResult] = useState<Boolean>(true);
   const [selectedMenu, setSelectedMenu] = useState(0);
+  const [errorMsg, setErrorMsg] = useState("");
   const BASE_URL = "http://localhost:8080/books";
 
   //gör checks mellan response och book!!!!!
@@ -26,6 +28,7 @@ function MainSection() {
     if (response.status === 204 || response.status === 400) {
       setResult(false);
       setBooks([]);
+      setErrorMsg("No result");
       return;
     }
 
@@ -52,9 +55,13 @@ function MainSection() {
         const books = (await response.json()) as Book;
         setResult(true);
         setBooks([books]); //single book
+        alert("Book created!");
       } else {
         setResult(false);
         setBooks([]);
+        const err = (await response.json()) as ErrorMsg;
+        console.log(err.message);
+        setErrorMsg(err.message);
       }
     } catch (error) {
       console.log(error);
@@ -70,8 +77,12 @@ function MainSection() {
 
       if (response.ok) {
         setResult(true);
+        alert(`Book with ID: ${id} was deleted`); //just lazy, should show it in tsx
       } else {
-        setResult(true);
+        setResult(false);
+        const err = (await response.json()) as ErrorMsg;
+        console.log(err.message);
+        setErrorMsg(err.message);
       }
 
       setBooks([]);
@@ -92,20 +103,24 @@ function MainSection() {
       ) : null}
 
       {result === false ? (
-        <h1 className="text-2xl text-center pt-10">No books found..</h1>
+        <h1 className="text-2xl text-center pt-10">{errorMsg}</h1>
       ) : (
-        <div className="flex flex-wrap w-full justify-center mt-10">
-          {books.map((book) => (
-            //this should be an own component....
-            <div className="flex flex-wrap w-md justify-start m-10 shadow-xl rounded-2xl p-4">
-              <h1 className="text-center text-2xl w-full mb-5">{book.title}</h1>
-              <span className="w-full mb-4 text-md">{`ID: ${book.id}`}</span>
-              <span className="w-full mb-4 text-md">{`Description: ${book.description}`}</span>
-              <span className="w-full mb-4 text-md">{`Published: ${book.published_year}`}</span>
-              <span className="w-full mb-4 text-md">{`Author: ${book.author}`}</span>
-              <span className="w-full mb-4 text-md">{`Category: ${book.category}`}</span>
-            </div>
-          ))}
+        <div className="flex w-full justify-center">
+          <div className="flex flex-wrap w-xl justify-center mt-10">
+            {books.map((book) => (
+              //this should be an own component....
+              <div className="flex flex-wrap w-full justify-start m-10 shadow-xl rounded-2xl p-4">
+                <h1 className="text-center text-2xl w-full mb-5">
+                  {book.title}
+                </h1>
+                <span className="w-full mb-4 text-md">{`ID: ${book.id}`}</span>
+                <span className="w-full mb-4 text-md">{`Description: ${book.description}`}</span>
+                <span className="w-full mb-4 text-md">{`Published: ${book.published_year}`}</span>
+                <span className="w-full mb-4 text-md">{`Author: ${book.author}`}</span>
+                <span className="w-full mb-4 text-md">{`Category: ${book.category}`}</span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </>
