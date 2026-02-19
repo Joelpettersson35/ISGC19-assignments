@@ -103,6 +103,15 @@
     </code>
   </li>
   <li>The client application should now be up and running</li>
-  <li>To access it, enter <code></code> in your browser</li>
+  <li>To access it, enter the url thats being printed in your terminal:</li>
+  <img width="255" height="108" alt="Skärmavbild 2026-02-19 kl  16 20 57" src="https://github.com/user-attachments/assets/7122fac6-f214-41d8-a1d0-03cb56e8fdbf" />
   <li>Make sure to start your backend aswell</li>
+</ol>
+
+## Testing the client
+<ol>
+  <li>Now try the similar steps you did with Postman, but with this UI:</li>
+  <img width="1710" height="1029" alt="Skärmavbild 2026-02-19 kl  16 33 18" src="https://github.com/user-attachments/assets/727afa39-2e02-43df-8212-bfcdaa9eebde" />
+  <li>If you are running into CORS-errors, make sure to add your port to the "BookController" in your backend:</li>
+  <img width="1920" height="1080" alt="Skärmavbild 2026-02-19 kl  16 29 33" src="https://github.com/user-attachments/assets/f838b327-83f0-42b6-a271-1931612c48ba" />
 </ol>
