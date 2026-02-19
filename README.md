@@ -91,3 +91,18 @@
   <li>If your book doesnt exist, this should be returned:</li>
   <img width="1910" height="316" alt="image" src="https://github.com/user-attachments/assets/b1dee812-3ab0-4f5e-9f04-b24561c48fd6" />
 </ol>
+
+## Building the client
+<ol>
+  <li>To run the client you need node.js installed <a href="https://nodejs.org/en/download">node.js</a></li>
+  <li>In your prefered IDE, open the folder "assignment2" from the frontend folder/li>
+  <li>Open a new terminal window in your IDE and run: 
+    <code>
+      npm install
+      npm run dev
+    </code>
+  </li>
+  <li>The client application should now be up and running</li>
+  <li>To access it, enter <code></code> in your browser</li>
+  <li>Make sure to start your backend aswell</li>
+</ol>
