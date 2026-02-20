@@ -1,4 +1,8 @@
 # How to build, run and test assignment 2
+
+## Video showcasing CRUD operations
+Available via Google drive <a href="https://drive.google.com/file/d/1eorkxEsMzKJsvgGpirF5W96K5kRaycq9/view?usp=sharing">link</a>
+
 ## Cloning the repository
 <ol>
   <li>Open a new terminal window</li>
